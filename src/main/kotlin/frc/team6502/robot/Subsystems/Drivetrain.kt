@@ -17,7 +17,7 @@ import frc.team6502.robot.RobotContainer
 import kotlin.math.PI
 
 
-class Drivetrain : SubsystemBase() {
+object Drivetrain : SubsystemBase() {
     // ---------- motors ----------
     private val leftDrive = CANSparkMax(Constants.LEFT_DRIVE_PORT, CANSparkMaxLowLevel.MotorType.kBrushless).apply {
         restoreFactoryDefaults()
@@ -33,10 +33,10 @@ class Drivetrain : SubsystemBase() {
 
     // ---------- controllers ----------
     // handles the conversion between v/omega and left/right velocities
-    public val kinematics = DifferentialDriveKinematics(Constants.DRIVE_TRACK_WIDTH)
+    val kinematics = DifferentialDriveKinematics(Constants.DRIVE_TRACK_WIDTH)
 
     // keeps track of where the robot is on the field
-    public val odometry = DifferentialDriveOdometry(Rotation2d())
+    val odometry = DifferentialDriveOdometry(Rotation2d())
 
     // feedforward - estimator for what voltage should be applied
     private val leftFeedforward = SimpleMotorFeedforward(Constants.DRIVE_KS_L, Constants.DRIVE_KV_L, Constants.DRIVE_KA_L)
