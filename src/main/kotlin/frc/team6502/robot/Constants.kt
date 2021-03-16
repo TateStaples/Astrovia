@@ -3,3 +3,29 @@ package frc.team6502.robot
 /**
  * Define any constants in this file.
  */
+
+object Constants {
+    // ---------- Drivetrain  ----------
+
+    // motor ports
+    const val LEFT_DRIVE_PORT = 0
+    const val RIGHT_DRIVE_PORT = 0
+
+    // configs
+    const val DRIVE_TRACK_WIDTH = 0.0
+    const val DRIVE_WHEEL_RADIUS = 4.0
+    const val DRIVE_GEAR_RATIO = 10 / 72
+
+    const val DRIVE_KS_L = 0.0
+    const val DRIVE_KV_L = 0.0
+    const val DRIVE_KA_L = 0.0
+
+    const val DRIVE_KS_R = 0.0
+    const val DRIVE_KV_R = 0.0
+    const val DRIVE_KA_R = 0.0
+
+    const val DRIVE_P = 0.0
+    const val DRIVE_I = 0.0
+    const val DRIVE_D = 0.0
+    //
+}
