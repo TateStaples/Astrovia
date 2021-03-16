@@ -21,11 +21,12 @@ class DefaultDrive : CommandBase() {
 
     // TODO implement proper cheesy drive
     override fun execute() {
-        val fwd = RobotContainer.joystick.
-        val turn = RobotContainer.joystick.rightX.value.radiansPerSecond
-        Drivetrain.
-//        val speeds = Drivetrain..toWheelSpeeds(ChassisSpeeds(velFilter.calculate(fwd.metersPerSecond), 0.0, rotFilter.calculate(turn.radiansPerSecond)))
-        Drivetrain.drive(speeds)
+//        val fwd = RobotContainer.joystick.
+//        val turn = RobotContainer.joystick.
+//        val speeds = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(velFilter.calculate(fwd.metersPerSecond), 0.0, rotFilter.calculate(turn.radiansPerSecond)))
+        val testSpeed = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(0.5, 0.0, 0.0))
+        if (RobotContainer.joystick.aButtonPressed)
+            Drivetrain.drive(testSpeed)
     }
 
     override fun isFinished() = false

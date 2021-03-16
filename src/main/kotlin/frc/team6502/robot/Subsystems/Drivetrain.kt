@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase
 import frc.team6502.robot.Commands.Drive.DefaultDrive
 import frc.team6502.robot.Constants
 import frc.team6502.robot.RobotContainer
+import frc.team6502.robot.Utils.Differentiator
 import kotlin.math.PI
 
 
@@ -37,6 +38,9 @@ object Drivetrain : SubsystemBase() {
 
     // keeps track of where the robot is on the field
     val odometry = DifferentialDriveOdometry(Rotation2d())
+
+    val leftAccelCalculator = Differentiator()
+    val rightAccelCalculator = Differentiator()
 
     // feedforward - estimator for what voltage should be applied
     private val leftFeedforward = SimpleMotorFeedforward(Constants.DRIVE_KS_L, Constants.DRIVE_KV_L, Constants.DRIVE_KA_L)
