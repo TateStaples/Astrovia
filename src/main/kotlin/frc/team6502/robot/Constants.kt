@@ -24,7 +24,7 @@ object Constants {
     const val DRIVE_KV_R = 0.0
     const val DRIVE_KA_R = 0.0
 
-    const val DRIVE_P = 0.0
+    const val DRIVE_P = 0.7
     const val DRIVE_I = 0.0
     const val DRIVE_D = 0.0
     //

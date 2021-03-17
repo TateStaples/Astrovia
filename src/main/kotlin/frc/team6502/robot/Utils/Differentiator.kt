@@ -1,4 +1,4 @@
-package frc.team6502.robot.Utils
+package frc.team6502.robot.utils
 
 import edu.wpi.first.wpilibj.RobotBase.isReal
 import edu.wpi.first.wpilibj.Timer

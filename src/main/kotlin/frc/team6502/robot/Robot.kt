@@ -2,7 +2,6 @@ package frc.team6502.robot
 
 import edu.wpi.first.hal.FRCNetComm
 import edu.wpi.first.hal.HAL
-import edu.wpi.first.hal.sim.DriverStationSim
 import edu.wpi.first.wpilibj.TimedRobot
 
 /**
@@ -19,31 +18,23 @@ class Robot : TimedRobot() {
     }
 
     override fun robotPeriodic() {
-        
     }
 
     override fun disabledInit() {
-
     }
 
     override fun disabledPeriodic() {
-
     }
 
     override fun autonomousInit() {
-
     }
 
     override fun autonomousPeriodic() {
-
     }
 
     override fun teleopInit() {
-
     }
 
     override fun teleopPeriodic() {
-
     }
-
 }

@@ -1,8 +1,7 @@
-package frc.team6502.robot.Subsystems
+package frc.team6502.robot.subsystems
 
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel
-import com.revrobotics.SparkMax
 import edu.wpi.first.wpilibj.controller.PIDController
 import edu.wpi.first.wpilibj.controller.SimpleMotorFeedforward
 import edu.wpi.first.wpilibj.geometry.Rotation2d
@@ -11,12 +10,10 @@ import edu.wpi.first.wpilibj.kinematics.DifferentialDriveOdometry
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveWheelSpeeds
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj2.command.SubsystemBase
-import frc.team6502.robot.Commands.Drive.DefaultDrive
 import frc.team6502.robot.Constants
-import frc.team6502.robot.RobotContainer
-import frc.team6502.robot.Utils.Differentiator
+import frc.team6502.robot.commands.DefaultDrive
+import frc.team6502.robot.utils.Differentiator
 import kotlin.math.PI
-
 
 object Drivetrain : SubsystemBase() {
     // ---------- motors ----------
@@ -30,7 +27,6 @@ object Drivetrain : SubsystemBase() {
         idleMode = CANSparkMax.IdleMode.kCoast
         setSmartCurrentLimit(40)
     }
-
 
     // ---------- controllers ----------
     // handles the conversion between v/omega and left/right velocities
@@ -90,5 +86,4 @@ object Drivetrain : SubsystemBase() {
 //            rightEnc.position
 //        )
     }
-
 }
