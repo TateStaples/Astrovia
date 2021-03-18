@@ -13,8 +13,8 @@ object Constants {
 
     // configs
     const val DRIVE_TRACK_WIDTH = 0.0
-    const val DRIVE_WHEEL_RADIUS = 4.0
-    const val DRIVE_GEAR_RATIO = 10 / 72
+    const val DRIVE_WHEEL_RADIUS = 2.0
+    const val DRIVE_GEAR_RATIO = 10.0 / 72.0
 
     const val DRIVE_KS_L = 0.0
     const val DRIVE_KV_L = 0.0

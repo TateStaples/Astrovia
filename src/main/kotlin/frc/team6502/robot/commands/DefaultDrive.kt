@@ -22,9 +22,9 @@ class DefaultDrive : CommandBase() {
 //        val fwd = RobotContainer.joystick.
 //        val turn = RobotContainer.joystick.
 //        val speeds = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(velFilter.calculate(fwd.metersPerSecond), 0.0, rotFilter.calculate(turn.radiansPerSecond)))
-//        val testSpeed = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(0.5, 0.0, 0.0))
+        val testSpeed = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(0.5, 0.0, 0.0))
 //        if (RobotContainer.joystick.x > 0.5)
-        Drivetrain.drive(0.1, 0.1)
+        Drivetrain.drive(testSpeed)// 20.0, 20.0)
     }
 
     override fun isFinished() = false

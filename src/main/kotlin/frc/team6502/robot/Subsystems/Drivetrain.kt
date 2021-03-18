@@ -48,11 +48,11 @@ object Drivetrain : SubsystemBase() {
 
     // encoders - measure velocity of motors
     private val leftEncoder = leftDrive.encoder.apply {
-        velocityConversionFactor = Constants.DRIVE_GEAR_RATIO * (Constants.DRIVE_WHEEL_RADIUS * 2 * PI) // why did divide by 9.9 on 2020?
+        velocityConversionFactor = Constants.DRIVE_GEAR_RATIO * (Constants.DRIVE_WHEEL_RADIUS * 2 * PI) / 9.9// why did divide by 9.9 on 2020?
         positionConversionFactor = (Constants.DRIVE_WHEEL_RADIUS * 2 * PI)
     }
     private val rightEncoder = rightDrive.encoder.apply {
-        velocityConversionFactor = Constants.DRIVE_GEAR_RATIO * (Constants.DRIVE_WHEEL_RADIUS * 2 * PI) // why did divide by 9.9 on 2020?
+        velocityConversionFactor = Constants.DRIVE_GEAR_RATIO * (Constants.DRIVE_WHEEL_RADIUS * 2 * PI) / 9.9 // why did divide by 9.9 on 2020?
         positionConversionFactor = (Constants.DRIVE_WHEEL_RADIUS * 2 * PI)
     }
 
@@ -74,9 +74,14 @@ object Drivetrain : SubsystemBase() {
         SmartDashboard.putNumber("rerror", rightPID.positionError)
 
         // write outputs to motors
-        leftDrive.setVoltage(lv)
-        rightDrive.setVoltage(rv)
+        drive(lv, rv)
     }
+
+    fun drive(leftVolt: Double, rightVolt: Double) {
+        leftDrive.setVoltage(leftVolt)
+        rightDrive.setVoltage(rightVolt)
+    }
+
 
     override fun periodic() {
         // update the odometry
