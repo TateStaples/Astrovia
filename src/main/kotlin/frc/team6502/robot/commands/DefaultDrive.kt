@@ -3,6 +3,7 @@ package frc.team6502.robot.commands
 import edu.wpi.first.wpilibj.SlewRateLimiter
 import edu.wpi.first.wpilibj.kinematics.ChassisSpeeds
 import edu.wpi.first.wpilibj2.command.CommandBase
+import frc.team6502.robot.RobotContainer
 import frc.team6502.robot.subsystems.Drivetrain
 
 class DefaultDrive : CommandBase() {
@@ -22,9 +23,11 @@ class DefaultDrive : CommandBase() {
 //        val fwd = RobotContainer.joystick.
 //        val turn = RobotContainer.joystick.
 //        val speeds = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(velFilter.calculate(fwd.metersPerSecond), 0.0, rotFilter.calculate(turn.radiansPerSecond)))
-        val testSpeed = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(0.5, 0.0, 0.0))
-//        if (RobotContainer.joystick.x > 0.5)
-        Drivetrain.drive(testSpeed)// 20.0, 20.0)
+//        val testSpeed = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(0.5, 0.0, 0.0))
+//        println(RobotContainer.joystick.x)
+        if (RobotContainer.joystick.x > 0.5)
+            Drivetrain.drive(2.0, 2.0)
+        else Drivetrain.drive(0.0, 0.0)
     }
 
     override fun isFinished() = false
