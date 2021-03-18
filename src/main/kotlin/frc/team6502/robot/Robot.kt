@@ -18,6 +18,7 @@ class Robot : TimedRobot() {
     }
 
     override fun robotPeriodic() {
+//        println("test")
     }
 
     override fun disabledInit() {

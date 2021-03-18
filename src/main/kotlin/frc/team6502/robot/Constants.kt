@@ -8,8 +8,8 @@ object Constants {
     // ---------- Drivetrain  ----------
 
     // motor ports
-    const val LEFT_DRIVE_PORT = 0
-    const val RIGHT_DRIVE_PORT = 0
+    const val LEFT_DRIVE_PORT = 5
+    const val RIGHT_DRIVE_PORT = 6
 
     // configs
     const val DRIVE_TRACK_WIDTH = 0.0

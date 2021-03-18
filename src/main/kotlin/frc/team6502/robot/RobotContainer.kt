@@ -1,7 +1,8 @@
 package frc.team6502.robot
 
-// import edu.wpi.first.wpilibj.Joystick
 import frc.team6502.robot.subsystems.Drivetrain
+
+// import edu.wpi.first.wpilibj.Joystick
 
 /**
  * Initialize devices and subsystems here
