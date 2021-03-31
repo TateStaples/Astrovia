@@ -26,6 +26,7 @@ object Drivetrain : SubsystemBase() {
         restoreFactoryDefaults()
         idleMode = CANSparkMax.IdleMode.kCoast
         setSmartCurrentLimit(40)
+        inverted = true
     }
 
     // ---------- controllers ----------
@@ -48,11 +49,11 @@ object Drivetrain : SubsystemBase() {
 
     // encoders - measure velocity of motors
     private val leftEncoder = leftDrive.encoder.apply {
-        velocityConversionFactor = Constants.DRIVE_GEAR_RATIO * (Constants.DRIVE_WHEEL_RADIUS * 2 * PI) / 9.9// why did divide by 9.9 on 2020?
+        velocityConversionFactor = Constants.DRIVE_GEAR_RATIO * (Constants.DRIVE_WHEEL_RADIUS * 2 * PI)// why did divide by 9.9 on 2020?
         positionConversionFactor = (Constants.DRIVE_WHEEL_RADIUS * 2 * PI)
     }
     private val rightEncoder = rightDrive.encoder.apply {
-        velocityConversionFactor = Constants.DRIVE_GEAR_RATIO * (Constants.DRIVE_WHEEL_RADIUS * 2 * PI) / 9.9 // why did divide by 9.9 on 2020?
+        velocityConversionFactor = Constants.DRIVE_GEAR_RATIO * (Constants.DRIVE_WHEEL_RADIUS * 2 * PI) // why did divide by 9.9 on 2020?
         positionConversionFactor = (Constants.DRIVE_WHEEL_RADIUS * 2 * PI)
     }
 
@@ -69,6 +70,8 @@ object Drivetrain : SubsystemBase() {
         // compute final outputs and apply ff
         val lv = leftPID.calculate(leftEncoder.velocity, lms) + leftFeedforward.calculate(lms, leftAccelCalculator.calculate(lms))
         val rv = rightPID.calculate(rightEncoder.velocity, rms) + rightFeedforward.calculate(rms, rightAccelCalculator.calculate(rms))
+
+        println("$lv, $rv")
 
         SmartDashboard.putNumber("lerror", leftPID.positionError)
         SmartDashboard.putNumber("rerror", rightPID.positionError)

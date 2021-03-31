@@ -18,15 +18,17 @@ class DefaultDrive : CommandBase() {
     override fun initialize() {
     }
 
-    // TODO implement proper cheesy drive
     override fun execute() {
-//        val fwd = RobotContainer.joystick.
-//        val turn = RobotContainer.joystick.
-//        val speeds = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(velFilter.calculate(fwd.metersPerSecond), 0.0, rotFilter.calculate(turn.radiansPerSecond)))
-//        val testSpeed = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(0.5, 0.0, 0.0))
+        val fwd = -RobotContainer.joystick.y
+        val turn = -RobotContainer.joystick.x
+        val speeds = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(velFilter.calculate(fwd), 0.0, rotFilter.calculate(turn)))
+//        val testSpeed = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(1.0, 0.0, 0.0))
 //        println(RobotContainer.joystick.x)
-        if (RobotContainer.joystick.x > 0.5)
-            Drivetrain.drive(2.0, 2.0)
+        if (RobotContainer.joystick.x > 0.5 || true) {
+//            Drivetrain.drive(fwd*3, fwd*3)
+//            Drivetrain.drive(speeds)
+            Drivetrain.drive(speeds.leftMetersPerSecond, speeds.rightMetersPerSecond)
+        }
         else Drivetrain.drive(0.0, 0.0)
     }
 
