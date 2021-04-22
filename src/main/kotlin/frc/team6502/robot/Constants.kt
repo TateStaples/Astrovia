@@ -11,9 +11,11 @@ object Constants {
     const val PIGEON_PORT = 6
     const val LEFT_DRIVE_PORT = 5
     const val RIGHT_DRIVE_PORT = 4
+    const val ElEVATOR_PORT = 12
+    const val INTAKE_PORT = 11
 
     // configs
-    const val DRIVE_TRACK_WIDTH = 0.3
+    const val DRIVE_TRACK_WIDTH = 0.3  // 23.774 degrees
     const val DRIVE_WHEEL_RADIUS = 0.0508
     const val DRIVE_GEAR_RATIO = 10.0 / 72.0
 
