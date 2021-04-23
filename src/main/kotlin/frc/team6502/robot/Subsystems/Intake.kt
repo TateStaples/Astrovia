@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.controller.ProfiledPIDController
 import edu.wpi.first.wpilibj.trajectory.TrapezoidProfile
 import edu.wpi.first.wpilibj2.command.SubsystemBase
 import frc.team6502.robot.Constants
+import kotlin.math.PI
 
 object Intake : SubsystemBase() {
     // motors
@@ -23,10 +24,12 @@ object Intake : SubsystemBase() {
     }
 
     // elevator
+    const val PULLEY_RADIUS = 0.01
+
     val elevatorEncoder = elevator.encoder.apply {
         position = 0.0
-        velocityConversionFactor = 1.0 / 10.0  // check this
-        positionConversionFactor = 1.0 / 10.0
+        velocityConversionFactor = 1.0 / 10.0 * PULLEY_RADIUS * (2 * PI)  // check this - gear ratio * circumfrance
+        positionConversionFactor = 1.0 / 10.0 * PULLEY_RADIUS * (2 * PI)
     }
 
     val elevatorCtrl = ProfiledPIDController(30.0, 2.0, 5.0, TrapezoidProfile.Constraints(3.0, 2.0)).apply {

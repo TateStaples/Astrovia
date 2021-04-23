@@ -22,21 +22,15 @@ class Robot : TimedRobot() {
 //        println("test")
     }
 
-    override fun disabledInit() {
-    }
+    override fun disabledInit() {}
 
-    override fun disabledPeriodic() {
-    }
+    override fun disabledPeriodic() {}
 
-    override fun autonomousInit() {
-    }
+    override fun autonomousInit() {}
 
-    override fun autonomousPeriodic() {
-    }
+    override fun autonomousPeriodic() {}
 
-    override fun teleopInit() {
-    }
+    override fun teleopInit() {}
 
-    override fun teleopPeriodic() {
-    }
+    override fun teleopPeriodic() {}
 }
