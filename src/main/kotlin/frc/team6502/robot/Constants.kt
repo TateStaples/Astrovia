@@ -11,7 +11,7 @@ object Constants {
     const val PIGEON_PORT = 6
     const val LEFT_DRIVE_PORT = 5
     const val RIGHT_DRIVE_PORT = 4
-    const val ElEVATOR_PORT = 12
+    const val ELEVATOR_PORT = 12
     const val INTAKE_PORT = 11
 
     // configs

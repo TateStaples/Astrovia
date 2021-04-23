@@ -4,6 +4,7 @@ import com.ctre.phoenix.sensors.PigeonIMU
 import frc.team6502.robot.subsystems.Drivetrain
  import edu.wpi.first.wpilibj.Joystick
 import frc.team6502.kyberlib.input.controller.KXboxController
+import frc.team6502.robot.Commands.Intake.IntakeBalls
 import kotlin.math.PI
 
 /**
@@ -25,6 +26,8 @@ object RobotContainer {
             expo = 20.0
             deadband = 0.2
         }
+
+        aButton.whileActiveOnce(IntakeBalls())
     }
 
 //    val pigeon = PigeonIMU(Constants.PIGEON_PORT);
