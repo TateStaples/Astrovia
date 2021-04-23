@@ -12,7 +12,6 @@ class Main() {
          */
         @JvmStatic
         fun main(args: Array<String>) {
-            println("Hello")
             RobotBase.startRobot(::Robot)
         }
     }
