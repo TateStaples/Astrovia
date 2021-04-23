@@ -19,8 +19,8 @@ class DefaultDrive : CommandBase() {
     }
 
     override fun execute() {
-        val fwd = RobotContainer.joystick.leftY.value * 5  // todo: make this not bad
-        val turn = -RobotContainer.joystick.rightX.value * 10
+        val fwd = -RobotContainer.joystick.leftY.value * 5  // todo: make this not bad
+        val turn = -RobotContainer.joystick.rightX.value * 5
         val speeds = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(velFilter.calculate(fwd), 0.0, rotFilter.calculate(turn)))
 //        val testSpeed = Drivetrain.kinematics.toWheelSpeeds(ChassisSpeeds(1.0, 0.0, 0.0))
 //        println(RobotContainer.joystick.x)

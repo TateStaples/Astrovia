@@ -3,13 +3,15 @@ package frc.team6502.robot.commands.Intake
 import edu.wpi.first.wpilibj2.command.CommandBase
 import frc.team6502.robot.subsystems.Intake
 
-class Flush : CommandBase() {
+class SetIntakeSpeed(speed: Double) : CommandBase() {
+    val speed = speed
+
     init {
         addRequirements(Intake)
     }
 
     override fun execute() {
-        Intake.intakeSpeed = -1.0  // todo: tune
+        Intake.intakeSpeed = speed  // todo: tune
     }
 
     override fun end(interrupted: Boolean) {

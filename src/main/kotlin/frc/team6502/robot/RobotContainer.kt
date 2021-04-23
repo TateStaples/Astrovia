@@ -1,11 +1,12 @@
 package frc.team6502.robot
 
-import com.ctre.phoenix.sensors.PigeonIMU
 import frc.team6502.robot.subsystems.Drivetrain
- import edu.wpi.first.wpilibj.Joystick
 import frc.team6502.kyberlib.input.controller.KXboxController
-import frc.team6502.robot.Commands.Intake.IntakeBalls
-import frc.team6502.robot.Commands.Intake.ReleaseIntake
+import frc.team6502.robot.commands.Intake.AdjustElevator
+import frc.team6502.robot.commands.Intake.Flush
+import frc.team6502.robot.commands.Intake.IntakeBalls
+import frc.team6502.robot.commands.Intake.ReleaseIntake
+import frc.team6502.robot.subsystems.Intake
 import kotlin.math.PI
 
 /**
@@ -29,7 +30,11 @@ object RobotContainer {
         }
 
         aButton.whileActiveOnce(IntakeBalls())
-        xButton.whenPressed(ReleaseIntake())
+        xButton.whenPressed(AdjustElevator(0.01))
+        bButton.whenPressed(AdjustElevator(-0.01))
+        yButton.whileActiveOnce(Flush())
+
+
     }
 
 //    val pigeon = PigeonIMU(Constants.PIGEON_PORT);
@@ -37,5 +42,6 @@ object RobotContainer {
     init {
         // initialize subsystems here:
         Drivetrain
+        Intake
     }
 }
