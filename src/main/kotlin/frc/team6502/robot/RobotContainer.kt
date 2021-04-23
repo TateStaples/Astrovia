@@ -5,6 +5,7 @@ import frc.team6502.robot.subsystems.Drivetrain
  import edu.wpi.first.wpilibj.Joystick
 import frc.team6502.kyberlib.input.controller.KXboxController
 import frc.team6502.robot.Commands.Intake.IntakeBalls
+import frc.team6502.robot.Commands.Intake.ReleaseIntake
 import kotlin.math.PI
 
 /**
@@ -28,6 +29,7 @@ object RobotContainer {
         }
 
         aButton.whileActiveOnce(IntakeBalls())
+        xButton.whenPressed(ReleaseIntake())
     }
 
 //    val pigeon = PigeonIMU(Constants.PIGEON_PORT);

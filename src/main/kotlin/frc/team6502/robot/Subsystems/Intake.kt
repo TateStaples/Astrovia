@@ -24,7 +24,7 @@ object Intake : SubsystemBase() {
     }
 
     // elevator
-    const val PULLEY_RADIUS = 0.01
+    const val PULLEY_RADIUS = 0.025 / 2.0
 
     val elevatorEncoder = elevator.encoder.apply {
         position = 0.0
@@ -36,8 +36,8 @@ object Intake : SubsystemBase() {
         this.setIntegratorRange(0.0,3.0)  // todo: tune this
     }
 
-    const val elevatorPositionMin = 0.0  // todo: figure these out
-    const val elevatorPositionMax = 10.0
+    const val elevatorPositionMin = 0.0
+    const val elevatorPositionMax = 0.1  // 10 cm
 
     var elevatorPosition
         get() = elevatorEncoder.position
@@ -48,8 +48,6 @@ object Intake : SubsystemBase() {
         }
 
     // intake
-    const val intakePosition = 1.0;
-
     var intakeSpeed
         get() = feeder.appliedOutput
         set(value) {
